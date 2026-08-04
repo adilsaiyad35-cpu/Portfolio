@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Saiyad Adil — Data Analytics Portfolio">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<title>Portfolio | Saiyad Adil</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;text-decoration:none;outline:none;border:none;transition:all .2s linear;}
+html{font-size:62.5%;overflow-x:hidden;scroll-behavior:smooth;}
+body{background:#f7f7f7;font-family:'Poppins',sans-serif;}
+*::selection{background:#011aff;color:#fff;}
+html::-webkit-scrollbar{width:.8rem;}
+html::-webkit-scrollbar-track{background:#ebcaf5;}
+html::-webkit-scrollbar-thumb{background:#420177;}
+
+section{min-height:100vh;padding:8rem 9% 4rem;}
+.heading{font-size:3.5rem;color:#202020;font-weight:800;text-align:center;margin-bottom:2rem;}
+.heading span{color:#7303a7;}
+
+/* navbar */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1.7rem 10%; height:6.5rem;
+  background:#fff; box-shadow:0 1px 4px rgba(146,161,176,.3);
+}
+header .logo{font-size:1.9rem; font-weight:800; color:#0E2431;}
+header .logo i{font-size:2.2rem; color:#011aff;}
+header .logo:hover{color:#fc8c05;}
+header .navbar ul{list-style:none; display:flex; align-items:center;}
+header .navbar li{margin-left:2.5rem;}
+header .navbar ul li a{font-size:1.57rem; color:#0E2431; font-weight:600; letter-spacing:.04rem;}
+header .navbar ul li a.active, header .navbar ul li a:hover{color:#011aff; border-bottom:.2rem solid #011aff; padding:.5rem 0;}
+#menu{font-size:3rem; cursor:pointer; color:#18023f; display:none;}
+@media(max-width:768px){
+  #menu{display:block;}
+  header .navbar{position:fixed; top:6.5rem; right:-120%; width:75%; height:100%; background:#0e0f31; align-items:flex-start;}
+  header .navbar ul{flex-flow:column; padding:1rem;}
+  header .navbar ul li{text-align:center; width:26rem; margin:1rem 0;}
+  header .navbar ul li a{display:block; padding:1rem; text-align:left; color:#fff; font-size:2rem;}
+  header .navbar ul li a.active, header .navbar ul li a:hover{border-radius:.5rem; border-bottom:.5rem solid #011aff;}
+  header .navbar.nav-toggle{right:0;}
+}
+
+/* hero */
+.home{
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;
+  position:relative; overflow:hidden;
+  background:radial-gradient(ellipse at 70% 30%, #efe3ff 0%, #f7f7f7 55%);
+}
+.home .content{flex:1 1 42rem; z-index:2;}
+.home .content h2{font-size:4.2rem; font-weight:700; color:#202020; line-height:1.15;}
+.home .content h2 span{color:#7303a7;}
+.home .content p{font-size:1.9rem; color:#333; margin:1.4rem 0 2.2rem;}
+.home .content p .typing-text{color:#011aff; font-weight:700;}
+.home .btn{
+  display:inline-flex; align-items:center; gap:.8rem;
+  padding:1.1rem 2.6rem; background:#011aff; color:#fff;
+  border-radius:.5rem; font-size:1.6rem; font-weight:600;
+}
+.home .btn:hover{background:#7303a7; letter-spacing:.05rem;}
+.home .socials{margin-top:2.6rem;}
+.home .social-icons{list-style:none; display:flex; gap:1.2rem;}
+.home .social-icons a{
+  display:flex; align-items:center; justify-content:center;
+  width:4.2rem; height:4.2rem; border-radius:50%;
+  background:#fff; color:#333; font-size:1.9rem; box-shadow:0 .4rem 1rem rgba(0,0,0,.08);
+}
+.home .social-icons a:hover{background:#011aff; color:#fff; transform:translateY(-4px);}
+.home .image{flex:1 1 32rem; display:flex; justify-content:center; z-index:2;}
+.avatar{
+  width:26rem; height:26rem; border-radius:50%;
+  background:linear-gradient(135deg,#011aff,#7303a7);
+  display:flex; align-items:center; justify-content:center;
+  font-size:8rem; font-weight:800; color:#fff;
+  box-shadow:0 2rem 4rem rgba(1,26,255,.25);
+  transition:transform .4s ease, box-shadow .4s ease, border-radius .4s ease;
+}
+.avatar:hover{transform:scale(1.06) rotate(4deg); border-radius:40%; box-shadow:0 2.5rem 5rem rgba(115,3,167,.4);}
+#particles-js{position:absolute; inset:0; z-index:1;}
+
+/* about */
+.about .row{display:flex; align-items:center; flex-wrap:wrap; gap:4rem; justify-content:center;}
+.about .image{flex:1 1 30rem; display:flex; justify-content:center;}
+.about .image .avatar-sm{
+  width:22rem; height:22rem; border-radius:1.5rem;
+  background:linear-gradient(135deg,#7303a7,#011aff);
+  display:flex; align-items:center; justify-content:center;
+  font-size:6.5rem; font-weight:800; color:#fff;
+  box-shadow:0 1.5rem 3rem rgba(0,0,0,.15);
+}
+.about .content{flex:1 1 46rem;}
+.about .content h3{font-size:2.6rem; color:#202020;}
+.about .content .tag{display:inline-block; margin:.6rem 0 1.6rem; padding:.6rem 1.4rem; background:#eee0fb; color:#7303a7; border-radius:2rem; font-size:1.4rem; font-weight:700;}
+.about .content p{font-size:1.6rem; color:#444; line-height:1.8; margin-bottom:1rem;}
+.about .box-container{display:flex; flex-wrap:wrap; gap:1.5rem; margin:2rem 0;}
+.about .box{background:#fff; padding:1.6rem 2rem; border-radius:.8rem; box-shadow:0 .5rem 1.5rem rgba(0,0,0,.08); flex:1 1 24rem; border:1px solid transparent;}
+.about .box:hover{transform:translateY(-6px); box-shadow:0 1.2rem 2.5rem rgba(1,26,255,.15); border-color:#011aff;}
+.about .box p{font-size:1.5rem; margin:.4rem 0;}
+.about .box p span{font-weight:700; color:#011aff;}
+
+/* skills */
+.skills{background:#fff;}
+.skills .container{max-width:90rem; margin:0 auto;}
+.skills .row{display:flex; flex-wrap:wrap; gap:2rem;}
+.skills .bar{flex:1 1 26rem; background:#f7f7f7; border-radius:.8rem; padding:1.6rem 2rem; box-shadow:0 .4rem 1rem rgba(0,0,0,.05); border:1px solid transparent;}
+.skills .bar:hover{background:#fff; transform:translateY(-5px) scale(1.02); box-shadow:0 1.2rem 2.5rem rgba(115,3,167,.15); border-color:#7303a7;}
+.skills .bar .info{display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; font-size:1.6rem; font-weight:600; color:#202020;}
+.skills .bar .info i{color:#011aff; margin-right:.6rem; transition:transform .3s ease, color .3s ease;}
+.skills .bar:hover .info i{color:#7303a7; transform:scale(1.2) rotate(-6deg);}
+.skills .bar:hover .progress-track span{filter:brightness(1.15);}
+.skills .progress-track{height:.8rem; background:#e4e4e4; border-radius:1rem; overflow:hidden;}
+.skills .progress-track span{display:block; height:100%; background:linear-gradient(90deg,#011aff,#7303a7); border-radius:1rem;}
+.skills .subheading{font-size:1.4rem; text-transform:uppercase; letter-spacing:.1rem; color:#7303a7; font-weight:700; margin:3rem 0 1.5rem;}
+.skills .chip-row{display:flex; flex-wrap:wrap; gap:1rem;}
+.skills .chip{background:#eee0fb; color:#7303a7; padding:.9rem 1.8rem; border-radius:2.4rem; font-size:1.5rem; font-weight:600; cursor:default;}
+.skills .chip:hover{background:#011aff; color:#fff; transform:translateY(-4px); box-shadow:0 .8rem 1.6rem rgba(1,26,255,.3);}
+
+.tool-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(11rem,1fr)); gap:1.6rem;}
+.tool-item{
+  background:#f7f7f7; border-radius:1rem; padding:2.4rem 1.2rem; text-align:center;
+  cursor:default; border:1px solid #eee; transition:transform .35s ease, background .35s ease, box-shadow .35s ease;
+}
+.tool-item i{display:block; font-size:3.2rem; color:#7303a7; margin-bottom:1rem; transition:transform .35s ease, color .35s ease;}
+.tool-item span{font-size:1.4rem; font-weight:600; color:#333; transition:color .35s ease;}
+.tool-item:hover{
+  background:linear-gradient(135deg,#011aff,#7303a7); border-color:transparent;
+  transform:translateY(-8px) rotate(-2deg); box-shadow:0 1.5rem 2.5rem rgba(1,26,255,.3);
+}
+.tool-item:hover i{color:#ffe600; transform:scale(1.25) rotate(8deg);}
+.tool-item:hover span{color:#fff;}
+
+/* education */
+.education{background:linear-gradient(to bottom,#f7f7f7,#efe9fb);}
+.education .qoute{text-align:center; font-size:1.6rem; color:#555; font-style:italic; margin-bottom:3rem;}
+.education .box-container{display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;}
+.education .box{flex:1 1 34rem; max-width:40rem; background:#fff; border-radius:1rem; overflow:hidden; box-shadow:0 .8rem 2rem rgba(0,0,0,.08);}
+.education .box:hover{transform:translateY(-8px); box-shadow:0 1.6rem 3rem rgba(0,0,0,.18);}
+.education .box .icon-head{
+  height:12rem; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,#011aff,#7303a7); color:#fff; font-size:4rem;
+  transition:background .35s ease, transform .35s ease;
+}
+.education .box:hover .icon-head{background:linear-gradient(135deg,#7303a7,#ff2b7f); transform:scale(1.08);}
+.education .box:hover .icon-head i{transform:rotate(-8deg) scale(1.1); display:inline-block;}
+.education .box .content{padding:2rem;}
+.education .box .content h3{font-size:1.9rem; color:#202020; margin-bottom:.6rem;}
+.education .box .content p{font-size:1.5rem; color:#555; margin-bottom:.6rem;}
+.education .box .content h4{font-size:1.4rem; color:#011aff; font-weight:700;}
+
+/* achievements (in place of "work") */
+.work{background:linear-gradient(to bottom,#010136,#00003a); margin-top:0;}
+.work .heading{color:#fff;}
+.work .heading span{color:#ffe600;}
+.work .box-container{display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; margin-top:2rem;}
+.work .box-container .box{
+  flex:1 1 28rem; max-width:34rem; background:#fff; border-radius:.8rem; padding:2.4rem;
+  box-shadow:0 .7rem 1.5rem rgba(0,0,0,.3); border:2px solid transparent;
+}
+.work .box-container .box:hover{transform:translateY(-8px) scale(1.03); border-color:#ffe600; box-shadow:0 1.5rem 3rem rgba(0,0,0,.5);}
+.work .box-container .box i{font-size:3.2rem; color:#7303a7; margin-bottom:1rem; transition:transform .35s ease, color .35s ease;}
+.work .box-container .box:hover i{color:#ff2b7f; transform:rotate(-10deg) scale(1.15);}
+.work .box-container .box h3{font-size:1.9rem; margin-bottom:.6rem; color:#202020;}
+.work .box-container .box p{font-size:1.5rem; color:#555;}
+
+/* contact */
+.contact{background:#fff;}
+.contact .container{max-width:70rem; margin:0 auto;}
+.contact .info-grid{display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; margin-top:2rem;}
+.contact .info-box{
+  flex:1 1 22rem; background:#f7f7f7; border-radius:1rem; padding:2.4rem; text-align:center;
+  box-shadow:0 .5rem 1.5rem rgba(0,0,0,.06); border:1px solid transparent;
+}
+.contact .info-box:hover{background:#fff; transform:translateY(-6px); border-color:#011aff; box-shadow:0 1.2rem 2.5rem rgba(1,26,255,.18);}
+.contact .info-box i{font-size:2.8rem; color:#011aff; margin-bottom:1rem; transition:transform .3s ease;}
+.contact .info-box:hover i{transform:scale(1.2) translateY(-3px);}
+.contact .info-box h3{font-size:1.7rem; color:#202020; margin-bottom:.5rem;}
+.contact .info-box p{font-size:1.5rem; color:#555; word-break:break-word;}
+.contact .cta{text-align:center; margin-top:3rem;}
+.contact .cta .btn{
+  display:inline-flex; align-items:center; gap:.8rem;
+  padding:1.2rem 3rem; background:#011aff; color:#fff; border-radius:.5rem; font-size:1.7rem; font-weight:600;
+}
+.contact .cta .btn:hover{background:#7303a7;}
+
+/* footer */
+.footer{background:#0e0f31; padding:6rem 9% 2rem;}
+.footer .box-container{display:flex; flex-wrap:wrap; gap:3rem; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.1); padding-bottom:3rem;}
+.footer .box{flex:1 1 24rem;}
+.footer .box h3{font-size:2rem; color:#fff; margin-bottom:1.4rem;}
+.footer .box p{font-size:1.4rem; color:#bbb; line-height:1.8;}
+.footer .box a{display:block; font-size:1.5rem; color:#bbb; margin:.8rem 0;}
+.footer .box a i{margin-right:.6rem; color:#011aff;}
+.footer .box a:hover{color:#fff; padding-left:.5rem;}
+.footer .share{display:flex; gap:1rem; margin-top:1.5rem;}
+.footer .share a{
+  display:flex; align-items:center; justify-content:center; width:4rem; height:4rem;
+  border-radius:50%; background:rgba(255,255,255,.08); color:#fff; font-size:1.7rem;
+}
+.footer .share a:hover{background:#011aff;}
+.footer .credit{text-align:center; color:#bbb; font-size:1.5rem; padding-top:2rem;}
+.footer .credit a{color:#fff; font-weight:700;}
+.footer .credit i{color:#ff2b2b;}
+
+/* scroll top */
+#scroll-top{
+  position:fixed; bottom:2rem; right:2rem; opacity:0; pointer-events:none;
+  padding:1rem 1.5rem; font-size:2rem; background:#011aff; color:#fff;
+  border-radius:5rem; z-index:1000;
+}
+#scroll-top.active{opacity:1; pointer-events:auto;}
+
+@media(max-width:450px){
+  html{font-size:55%;}
+  section{padding:8rem 2rem 3rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#home" class="logo"><i class="fas fa-chart-line"></i> Adil</a>
+  <div id="menu" class="fas fa-bars"></div>
+  <nav class="navbar">
+    <ul>
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="home" id="home">
+  <div id="particles-js"></div>
+  <div class="content">
+    <h2>Hi There,<br>I'm Adil <span>Saiyad</span></h2>
+    <p>I am into <span class="typing-text"></span></p>
+    <a href="#about" class="btn"><span>About Me</span> <i class="fas fa-arrow-circle-down"></i></a>
+    <div class="socials">
+      <ul class="social-icons">
+        <li><a href="mailto:adilsaiyad35@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+        <li><a href="tel:+919904873691" aria-label="Phone"><i class="fas fa-phone-alt"></i></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="image"><div class="avatar">SA</div></div>
+</section>
+
+<section class="about" id="about">
+  <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
+  <div class="row">
+    <div class="image"><div class="avatar-sm">SA</div></div>
+    <div class="content">
+      <h3>I'm Saiyad Adil</h3>
+      <span class="tag">Aspiring Data Analyst</span>
+      <p>BCA graduate from Maharaja Krishnakumarsinhji Bhavnagar University, with a strong foundation in data analytics — handling missing values, removing duplicates, and cleaning datasets before they're ready to say anything useful.</p>
+      <p>Comfortable across HTML, CSS, SQL, and Python (pandas, numpy, seaborn, matplotlib), alongside Excel and Power BI for reporting. Looking for an entry-level analytics role to learn from experienced people and deliver real value.</p>
+      <div class="box-container">
+        <div class="box">
+          <p><span>email:</span> adilsaiyad35@gmail.com</p>
+          <p><span>place:</span> Valukad, Bhavnagar, Gujarat</p>
+        </div>
+        <div class="box">
+          <p><span>phone:</span> +91 99048 73691</p>
+          <p><span>languages:</span> English, Hindi, Gujarati</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills &amp; <span>Abilities</span></h2>
+  <div class="container">
+    <div class="row">
+      <div class="bar"><div class="info"><span><i class="fab fa-python"></i>Python (Pandas, NumPy)</span><span>85%</span></div><div class="progress-track"><span style="width:85%"></span></div></div>
+      <div class="bar"><div class="info"><span><i class="fas fa-database"></i>SQL (DDL / DML)</span><span>80%</span></div><div class="progress-track"><span style="width:80%"></span></div></div>
+      <div class="bar"><div class="info"><span><i class="fas fa-file-excel"></i>Microsoft Excel</span><span>88%</span></div><div class="progress-track"><span style="width:88%"></span></div></div>
+      <div class="bar"><div class="info"><span><i class="fas fa-chart-bar"></i>Power BI</span><span>70%</span></div><div class="progress-track"><span style="width:70%"></span></div></div>
+      <div class="bar"><div class="info"><span><i class="fas fa-chart-line"></i>Seaborn / Matplotlib</span><span>75%</span></div><div class="progress-track"><span style="width:75%"></span></div></div>
+      <div class="bar"><div class="info"><span><i class="fab fa-html5"></i>HTML &amp; CSS</span><span>78%</span></div><div class="progress-track"><span style="width:78%"></span></div></div>
+    </div>
+
+    <div class="subheading">Soft Skills</div>
+    <div class="chip-row">
+      <span class="chip">Communication</span>
+      <span class="chip">Teamwork</span>
+      <span class="chip">Problem-Solving</span>
+    </div>
+
+    <div class="subheading">Tools I Use</div>
+    <div class="tool-grid">
+      <div class="tool-item"><i class="fab fa-python"></i><span>Python</span></div>
+      <div class="tool-item"><i class="fas fa-database"></i><span>SQL</span></div>
+      <div class="tool-item"><i class="fas fa-file-excel"></i><span>Excel</span></div>
+      <div class="tool-item"><i class="fas fa-chart-bar"></i><span>Power BI</span></div>
+      <div class="tool-item"><i class="fas fa-chart-line"></i><span>Matplotlib</span></div>
+      <div class="tool-item"><i class="fas fa-water"></i><span>Seaborn</span></div>
+      <div class="tool-item"><i class="fab fa-html5"></i><span>HTML</span></div>
+      <div class="tool-item"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="education" id="education">
+  <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
+  <p class="qoute">Education is not the learning of facts, but the training of the mind to think.</p>
+  <div class="box-container">
+    <div class="box">
+      <div class="icon-head"><i class="fas fa-university"></i></div>
+      <div class="content">
+        <h3>Bachelor of Computer Applications (BCA)</h3>
+        <p>Maharaja Krishnakumarsinhji Bhavnagar University (MKBU)</p>
+        <h4>2023 – 2026 | Completed</h4>
+      </div>
+    </div>
+    <div class="box">
+      <div class="icon-head"><i class="fas fa-school"></i></div>
+      <div class="content">
+        <h3>Higher Secondary Certificate (HSC)</h3>
+        <p>GSEB</p>
+        <h4>2023 | Completed</h4>
+      </div>
+    </div>
+    <div class="box">
+      <div class="icon-head"><i class="fas fa-book"></i></div>
+      <div class="content">
+        <h3>Secondary School Certificate (SSC)</h3>
+        <p>GSEB</p>
+        <h4>2021 | Completed</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="achievements">
+  <h2 class="heading"><i class="fas fa-award"></i> Achievements &amp; <span>Interests</span></h2>
+  <div class="box-container">
+    <div class="box">
+      <i class="fas fa-certificate"></i>
+      <h3>Unnati Employability Training Certificate</h3>
+      <p>MAA Foundation</p>
+    </div>
+    <div class="box">
+      <i class="fas fa-broom"></i>
+      <h3>Data Cleaning</h3>
+      <p>Hands-on with handling missing values, removing duplicates, and cleaning datasets.</p>
+    </div>
+    <div class="box">
+      <i class="fas fa-running"></i>
+      <h3>Hobbies</h3>
+      <p>Playing Cricket, Running</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
+  <div class="container">
+    <p style="text-align:center; font-size:1.6rem; color:#555;">Open to entry-level data analytics roles and internships — happy to talk.</p>
+    <div class="info-grid">
+      <a class="info-box" href="mailto:adilsaiyad35@gmail.com"><i class="fas fa-envelope"></i><h3>Email</h3><p>adilsaiyad35@gmail.com</p></a>
+      <a class="info-box" href="tel:+919904873691"><i class="fas fa-phone-alt"></i><h3>Phone</h3><p>+91 99048 73691</p></a>
+      <div class="info-box"><i class="fas fa-map-marker-alt"></i><h3>Location</h3><p>Valukad, Dist. Bhavnagar, Gujarat</p></div>
+    </div>
+    <div class="cta"><a href="mailto:adilsaiyad35@gmail.com" class="btn"><span>Say Hello</span> <i class="fa fa-paper-plane"></i></a></div>
+  </div>
+</section>
+
+<section class="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>Adil's Portfolio</h3>
+      <p>Thank you for visiting my portfolio. I'm currently looking for entry-level data analytics opportunities — feel free to reach out.</p>
+    </div>
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="#home"><i class="fas fa-chevron-circle-right"></i> Home</a>
+      <a href="#about"><i class="fas fa-chevron-circle-right"></i> About</a>
+      <a href="#skills"><i class="fas fa-chevron-circle-right"></i> Skills</a>
+      <a href="#education"><i class="fas fa-chevron-circle-right"></i> Education</a>
+      <a href="#contact"><i class="fas fa-chevron-circle-right"></i> Contact</a>
+    </div>
+    <div class="box">
+      <h3>Contact Info</h3>
+      <p><i class="fas fa-phone"></i> +91 99048 73691</p>
+      <p><i class="fas fa-envelope"></i> adilsaiyad35@gmail.com</p>
+      <p><i class="fas fa-map-marked-alt"></i> Valukad, Bhavnagar, Gujarat</p>
+      <div class="share">
+        <a href="mailto:adilsaiyad35@gmail.com" class="fas fa-envelope" aria-label="Mail"></a>
+        <a href="tel:+919904873691" class="fas fa-phone" aria-label="Call"></a>
+      </div>
+    </div>
+  </div>
+  <h1 class="credit">&copy; 2026 Saiyad Adil. All rights reserved.</h1>
+</section>
+
+<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  // hamburger menu
+  const menuBtn = document.getElementById('menu');
+  const navbar = document.querySelector('header .navbar');
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('fa-times');
+    navbar.classList.toggle('nav-toggle');
+  });
+  document.querySelectorAll('.navbar ul li a').forEach(a => {
+    a.addEventListener('click', () => { menuBtn.classList.remove('fa-times'); navbar.classList.remove('nav-toggle'); });
+  });
+
+  // active link on scroll
+  const navLinks = document.querySelectorAll('.navbar ul li a');
+  const secs = [...navLinks].map(l => document.querySelector(l.getAttribute('href')));
+  window.addEventListener('scroll', () => {
+    let cur = secs[0];
+    const y = window.scrollY + 140;
+    secs.forEach(s => { if (s && s.offsetTop <= y) cur = s; });
+    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur.id));
+    document.getElementById('scroll-top').classList.toggle('active', window.scrollY > 400);
+  }, {passive:true});
+
+  // typed text
+  if (window.Typed) {
+    new Typed('.typing-text', {
+      strings: ['Data Analytics.', 'Python & SQL.', 'Excel & Power BI.', 'Cleaning Messy Data.'],
+      typeSpeed: 60, backSpeed: 30, backDelay: 1400, loop: true
+    });
+  }
+
+  // particles background (light, subtle)
+  window.addEventListener('load', () => {
+    if (window.particlesJS) {
+      particlesJS('particles-js', {
+        particles:{
+          number:{value:45,density:{enable:true,value_area:900}},
+          color:{value:'#7303a7'},
+          shape:{type:'circle'},
+          opacity:{value:0.3},
+          size:{value:3},
+          line_linked:{enable:true,distance:140,color:'#011aff',opacity:0.15,width:1},
+          move:{enable:true,speed:1.4}
+        },
+        interactivity:{events:{onhover:{enable:true,mode:'grab'}}},
+        retina_detect:true
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
